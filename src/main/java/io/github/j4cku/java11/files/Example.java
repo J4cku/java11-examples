@@ -1,27 +1,22 @@
-package io.github.biezhi.java11.files;
+package io.github.j4cku.java11.files;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-/**
- * Files 读写文本文件
- *
- * @author biezhi
- * @date 2018/7/31
- */
 public class Example {
 
-    public static void main(String[] args) throws Exception {
-        String text = "Hello biezhi.";
+    public static void main(String[] args) throws IOException {
+        String text = "Hello qiagen.";
 
-        // 写入文本
+        // Write text
         Files.writeString(Paths.get("hello.txt"), text);
 
-        // 读取文本
+        // read text
         String readText = Files.readString(Paths.get("hello.txt"));
         System.out.println(text.equals(readText));
 
-        // 删除文本
+        // delete
         Files.delete(Paths.get("hello.txt"));
     }
 

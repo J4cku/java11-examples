@@ -1,4 +1,4 @@
-package io.github.biezhi.java11.string;
+package io.github.j4cku.java11.string;
 
 import java.util.stream.Collectors;
 
@@ -9,11 +9,10 @@ import java.util.stream.Collectors;
  * String.stripLeading()
  * String.stripTrailing()
  * String.isBlank()
- *
- * @author biezhi
- * @date 2018/7/10
  */
 public class Example {
+
+    //TODO: test those string changes
 
     /**
      * Write provided {@code String} in header. Note that this
