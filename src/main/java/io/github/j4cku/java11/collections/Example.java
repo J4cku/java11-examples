@@ -1,10 +1,12 @@
 package io.github.j4cku.java11.collections;
 
+import static java.util.Map.entry;
+import static java.util.stream.Collectors.joining;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import static java.util.Map.entry;
+import java.util.stream.Collectors;
 
 public class Example {
 
@@ -24,9 +26,9 @@ public class Example {
 
         // Create map with entries
         Map<Integer, String> emptyEntryMap = Map.ofEntries(
-                entry(20, "value1"),
-                entry(30, "value2"),
-                entry(40, "value3")
+            entry(20, "value1"),
+            entry(30, "value2"),
+            entry(40, "value3")
         );
 
         // Create Map.Entry
@@ -39,6 +41,22 @@ public class Example {
 
         // Create a Set<String>
         Set<String> bar = Set.of("v1", "v2", "v3", "v4", "v5");
+
+        //teeing collector
+        var list = List.of(1, 4, 2, 7, 4, 6, 5);
+        String listString = list.stream().map(String::valueOf).collect(joining(","));
+        double average = list.stream()
+            .collect(
+                Collectors.teeing(
+                    Collectors.summingDouble(i -> i),
+                    Collectors.counting(),
+                    (sum, n) -> sum / n)
+            );
+        System.out.println("For List: [" + listString + "] Sum is " + list.stream().mapToInt(i -> i).sum() + " and average is " + average);
+
+        //creating array from list
+        Integer[] intArray = list.toArray(Integer[]::new);
+
 
     }
 
