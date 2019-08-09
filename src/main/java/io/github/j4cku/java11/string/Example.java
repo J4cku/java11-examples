@@ -80,7 +80,10 @@ public class Example {
     private static void demonstrateTransform() {
         writeHeader("String.transform() on ' mon\t day ' to Day enum");
         String str = " mon\t day ";
-        Day s2 = str.transform(s -> s.replaceAll("\\s", "")).transform(String::strip).transform(String::toUpperCase)
+        Day s2 = str
+            .transform(s -> s.replaceAll("\\s", ""))
+            .transform(String::strip)
+            .transform(String::toUpperCase)
             .transform(Day::valueOf);
         System.out.println(s2.name());
     }

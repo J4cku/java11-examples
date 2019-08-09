@@ -22,7 +22,7 @@ public class Example {
         Map emptyImmutableMap = Map.of();
 
         // Quickly create a map
-        var mmp = Map.of(2017, "value1", 2018, "valu2");
+        var map = Map.of(2017, "value1", 2018, "value2");
 
         // Create map with entries
         Map<Integer, String> emptyEntryMap = Map.ofEntries(
